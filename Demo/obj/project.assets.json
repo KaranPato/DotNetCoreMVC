@@ -5008,11 +5008,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "d:\\.Net Projects\\Dot Net Training\\Assignment\\DotNetCoreCRUDMVC\\Demo\\Demo.csproj",
+      "projectUniqueName": "d:\\.Net Projects\\Dot Net Training\\Assesment\\DotNetCoreMVC\\Demo\\Demo.csproj",
       "projectName": "Demo",
-      "projectPath": "d:\\.Net Projects\\Dot Net Training\\Assignment\\DotNetCoreCRUDMVC\\Demo\\Demo.csproj",
+      "projectPath": "d:\\.Net Projects\\Dot Net Training\\Assesment\\DotNetCoreMVC\\Demo\\Demo.csproj",
       "packagesPath": "C:\\Users\\karanpatokar\\.nuget\\packages\\",
-      "outputPath": "d:\\.Net Projects\\Dot Net Training\\Assignment\\DotNetCoreCRUDMVC\\Demo\\obj\\",
+      "outputPath": "d:\\.Net Projects\\Dot Net Training\\Assesment\\DotNetCoreMVC\\Demo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

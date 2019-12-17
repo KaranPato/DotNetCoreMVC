@@ -41,6 +41,8 @@ namespace Demo {
             IMapper mapper = mappingConfig.CreateMapper ( );
             services.AddSingleton (mapper);
 
+            services.AddRazorPages();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -57,12 +59,10 @@ namespace Demo {
 
             app.UseRouting ( );
 
-            app.UseAuthorization ( );
-
             app.UseEndpoints (endpoints => {
                 endpoints.MapControllerRoute (
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=User}/{action=GetUsers}/{id?}");
             });
         }
     }

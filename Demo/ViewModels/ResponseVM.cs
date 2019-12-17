@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Demo.ViewModels
 {
     public class ResponseVM

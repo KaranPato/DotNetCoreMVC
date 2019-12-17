@@ -1,8 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
 using AutoMapper;
 using Demo.Models;
 using Demo.ViewModels;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace Demo.Common {
     public class MappingProfile : Profile {
