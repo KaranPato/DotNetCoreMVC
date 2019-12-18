@@ -33,7 +33,20 @@ namespace Demo.Controllers {
         }
 
         public IActionResult AddUpdate ( ) {
-            return View();
+            return View ( );
+        }
+
+        public IActionResult EditUser ([Bind] int? Id) {
+            if (Id > 0) {
+                var user = _userService.GetUserById (Id);
+                if (user != null) {
+                    return View ("AddUpdate", user);
+                } else {
+                    return NotFound ( );
+                }
+            } else {
+                return NotFound ( );
+            }
         }
 
         /// <summary>
@@ -46,7 +59,7 @@ namespace Demo.Controllers {
             try {
                 var user = _userService.AddUpdateUser (uservm);
                 if (user != null)
-                    return RedirectToAction("GetUsers");
+                    return RedirectToAction ("GetUsers");
                 else
                     return NotFound ( );
             } catch (System.Exception) {

@@ -36,11 +36,10 @@
                     @Html.DisplayFor(modelItem => item.Email)    
                 </td>
                 <td>    
-                    <a asp-action="Edit" asp-route-id="@item.UserId">Edit</a> |    
+                    <a asp-action="EditUser" asp-route-id="@item.UserId">Edit</a> |    
                     <a asp-action="Details" asp-route-id="@item.UserId">Details</a> |
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                        Delete
-                    </button>    
+                    @* <button class="random" type="button">Delete</button> *@
+                    <a asp-action="DeleteUser" asp-route-id="@item.UserId">Delete</a>
                 </td>    
             </tr>
         }    
@@ -68,3 +67,24 @@
   </div>
 </div>
 </div>
+
+<script src="~/Scripts/jquery-2.1.4.min.js"></script>
+<script src="~/Scripts/jquery-ui-1.11.4.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        debugger;
+        $('#myModal').dialog({
+            autoOpen: false,
+            width: 400,
+            resizable: false,
+            modal: true
+        });
+
+        $('.random').click(function() {
+            $('#myModal').load(this.href, function() {
+                $(this).dialog('open');
+            });
+            return false;
+        });
+    });
+</script>

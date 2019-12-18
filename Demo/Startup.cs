@@ -14,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Demo.Common;
+using Swashbuckle.AspNetCore.Swagger;
+using Microsoft.OpenApi.Models;
 
 namespace Demo {
     public class Startup {
@@ -32,6 +34,7 @@ namespace Demo {
                 options.UseSqlServer ("Data Source=SDNMS-KARANP\\SQLEXPRESS;Initial Catalog=Assignment_DotNetCoreMVC;MultipleActiveResultSets=True;User Id=karanp;Password=Password@kp01"));
 
             services.AddScoped<IUserService, UserService> ( );
+            
 
             // Auto Mapper Configurations
             var mappingConfig = new MapperConfiguration (mc => {
@@ -42,6 +45,11 @@ namespace Demo {
             services.AddSingleton (mapper);
 
             services.AddRazorPages();
+
+            services.AddSwaggerGen(s =>
+            {
+                s.SwaggerDoc("v1", new OpenApiInfo { Title = "Recepi CRUD", Version = "v1" });
+            });
 
         }
 
@@ -63,6 +71,13 @@ namespace Demo {
                 endpoints.MapControllerRoute (
                     name: "default",
                     pattern: "{controller=User}/{action=GetUsers}/{id?}");
+            });
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(s =>
+            {
+                s.SwaggerEndpoint("/swagger/v1/swagger.json", "RecepiCRUD");
             });
         }
     }

@@ -16,7 +16,11 @@ namespace Demo.Services.Implementation {
 
         public User AddUpdateUser (User user) {
             if (user != null) {
-                _userContext.User.Add (user);
+                if (user.UserId > 0) {
+                    _userContext.User.Update (user);
+                } else {
+                    _userContext.User.Add (user);
+                }
                 _userContext.SaveChanges ( );
 
                 return user;
@@ -46,9 +50,18 @@ namespace Demo.Services.Implementation {
 
         public List<User> GetUsers ( ) {
             var users = _userContext.User.ToList ( );
-
             if (users.Count ( ) > 0) {
                 return users;
+            } else {
+                return null;
+            }
+        }
+
+        public User GetUserById (int? Id) {
+            var user = _userContext.User.SingleOrDefault (s => s.UserId == Id);
+
+            if (user != null) {
+                return user;
             } else {
                 return null;
             }
